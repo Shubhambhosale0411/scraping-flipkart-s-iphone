@@ -30,7 +30,9 @@ Several steps had to be performed to clean the data because we are dealing with 
 
 Such steps involved **standardizing the text, replacing empty values with a standard value, changing the data types of the columns and splitting columns for each product feature.
 ![scrap](https://user-images.githubusercontent.com/90494573/150670388-c1c99583-541a-42a4-a8f3-21ca6817c1f8.png)
-#Exporting the data
+
+## Exporting the data
+
 The final stage involves creating a connection the MySQL database and exporting the dataframe to the designated table. The final result is the one shown below.
 ![scrapping2](https://user-images.githubusercontent.com/90494573/150670449-0179984c-a439-404b-93d5-0ceafe4f3dcc.png)
 
