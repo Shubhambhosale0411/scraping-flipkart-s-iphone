@@ -14,8 +14,14 @@ container=page_soup.findAll("div",{"class":"_13oc-S"})
 containers=container[0]
 
 #print(container.div.img["alt"])
+# Merge every list into one dataframe
 
-
+"""df = pd.DataFrame(
+        {'name': productname,
+         'Price': productname,
+         'Rating': ratings
+        })
+    return df"""
 #main game begins   from here  apple bro
 title=containers.findAll("div",{"class":"_4rR01T"}) 
 
@@ -55,5 +61,21 @@ for containers in container:
 
     f.write(product +","+price+","+rating+"\n")
 f.close()
+ 
+    # FUNCTION TO EXPORT TO MYSQL
+
+def export(df):
+    import pymysql
+    from sqlalchemy import create_engine
+    from getpass import getpass
+    from sqlalchemy import inspect
+    username='root'
+    print('Please enter the password the access the MySQL database')
+    password=getpass()
+    engine=create_engine(f'mysql+pymysql://{username}:{password}@localhost/web_scraping')
+    df.to_sql('phone_db', engine, if_exists='append', index=False)
+    print('Export successful!')
+    
+    return None
 
 
